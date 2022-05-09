@@ -1,13 +1,20 @@
-const {ApolloServer} =require('apollo-server');
-const  {ApolloGateway} = require('@apollo/gateway');
+const { ApolloServer } = require("apollo-server");
+const { ApolloGateway } = require("@apollo/gateway");
 
-const port = process.env.PORT || 4000;
+const port = 4000;
+
 const gateway = new ApolloGateway({
-    serviceList:[{'name':'astronauts',url:'http://localhost:4001'}]
-});
-const server =  new ApolloServer({
-    gateway,
-    subscriptions:false
+  serviceList: [
+    { name: "astronauts", url: "http://localhost:4001" },
+    { name: "missions", url: "http://localhost:4002" }
+  ]
 });
 
-server.listen(port).then(({url})=>{console.log('Server ready at '+ url)}).catch(err=>{});
+const server = new ApolloServer({
+  gateway,
+  subscriptions: false
+});
+
+server.listen({ port }).then(({ url }) => {
+  console.log(`Server ready at ${url}`);
+});

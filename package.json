@@ -1,25 +1,26 @@
 {
-  "name": "apollo-test-concept",
+  "name": "space-camp-federation-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "@apollo/gateway": "^0.50.0",
+    "@apollo/subgraph": "^0.4.0",
+    "apollo-server": "^3.6.7",
+    "concurrently": "^7.0.0",
+    "graphql": "^15.8.0",
+    "json-server": "^0.17.0",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.15"
+  },
   "scripts": {
     "server": "concurrently -k npm:server:*",
     "server:rest": "json-server -q db.json",
     "server:astronauts": "nodemon astronauts.js",
+    "server:mission": "nodemon missions.js",
     "server:graphql": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@apollo/federation": "^0.36.1",
-    "@apollo/gateway": "^2.0.2",
-    "apollo-server": "^3.7.0",
-    "concurrently": "^7.1.0",
-    "graphql": "^16.4.0",
-    "json-server": "^0.17.0",
-    "node-fetch": "^2.6.7",
-    "nodemon": "^2.0.16"
-  }
+  "license": "ISC"
 }
